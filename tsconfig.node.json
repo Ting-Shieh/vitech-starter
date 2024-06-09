@@ -1,5 +1,5 @@
 {
-  "extends": "@tsconfig/node20/tsconfig.json",
+  "extends": ["@tsconfig/node20/tsconfig.json", "@vue/tsconfig/tsconfig.json"],
   "include": [
     "vite.config.*",
     "vitest.config.*",
@@ -9,11 +9,11 @@
   ],
   "compilerOptions": {
     "composite": true,
-    "noEmit": true,
+    "noEmit": false, // Referenced Project may not disable emit问题解决方法
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
 
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "types": ["node"]
+    // "module": "Node16",
+    "moduleResolution": "node16",
+    "types": ["node"],
   }
 }
