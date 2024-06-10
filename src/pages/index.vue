@@ -1,10 +1,3 @@
-<!--
- Copyright (c) 2024 Ting<zsting29@gmail.com>
- 
- This software is released under the MIT License.
- https://opensource.org/licenses/MIT
--->
-
 <template>
   <div class=""> Hello world in pages/index.vue</div>
   <h1 class="text-3xl font-bold underline">
@@ -16,4 +9,5 @@
 </template>  
 <script setup lang="ts">
 import { RouterLink } from 'vue-router/auto';
+const msg =ref()
 </script>
