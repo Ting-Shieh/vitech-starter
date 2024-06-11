@@ -11,6 +11,9 @@ import Components from 'unplugin-vue-components/vite'
 import {
   ElementPlusResolver,
 } from 'unplugin-vue-components/resolvers'
+// // icons 法二 -> 採用 unocss presetIcons
+// import Icons from 'unplugin-icons/vite'
+// import IconsResolver from 'unplugin-icons/resolver'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -43,8 +46,14 @@ export default defineConfig({
     Components({
       resolvers: [
         ElementPlusResolver(),
+        // IconsResolver({
+        //   prefix: 'icon'
+        // }),
       ]
-    })
+    }),
+    // Icons({
+    //   autoInstall: true
+    // })
   ],
   resolve: {
     alias: {
