@@ -14,6 +14,8 @@ import {
 // // icons 法二 -> 採用 unocss presetIcons
 // import Icons from 'unplugin-icons/vite'
 // import IconsResolver from 'unplugin-icons/resolver'
+import Layouts from 'vite-plugin-vue-layouts';
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -54,6 +56,10 @@ export default defineConfig({
     // Icons({
     //   autoInstall: true
     // })
+    Layouts({
+      layoutsDirs: 'src/layouts',
+      defaultLayout: 'default'
+    }),
   ],
   resolve: {
     alias: {

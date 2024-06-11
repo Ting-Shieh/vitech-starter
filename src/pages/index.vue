@@ -11,3 +11,7 @@
 import { RouterLink } from 'vue-router/auto';
 const msg =ref()
 </script>
+<route lang="yaml">
+  meta:
+    layout: default
+  </route>
