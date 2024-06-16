@@ -16,6 +16,7 @@ import {
 // import IconsResolver from 'unplugin-icons/resolver'
 import Layouts from 'vite-plugin-vue-layouts';
 import { VitePWA } from 'vite-plugin-pwa'
+import { viteMockServe } from 'vite-plugin-mock'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -61,7 +62,11 @@ export default defineConfig({
       layoutsDirs: 'src/layouts',
       defaultLayout: 'default'
     }),
-    VitePWA({ registerType: 'autoUpdate' })
+    VitePWA({ registerType: 'autoUpdate' }),
+    viteMockServe({
+      mockPath: 'mock',
+      enable: true,
+    }),
   ],
   resolve: {
     alias: {
