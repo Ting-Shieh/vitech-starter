@@ -6,11 +6,13 @@
 -->
 
 <template>
-  <div class="">Not Found</div>
-</template> 
-<script setup lang="ts"></script>
-<style scoped lang="scss"></style>
+  <div class=""> community page</div>
+</template>  
+<script setup lang="ts">
+
+</script>
 <route lang="yaml">
   meta:
-    layout: 404
+    layout: default
 </route>
+<style scoped lang="scss"></style>

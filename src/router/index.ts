@@ -1,10 +1,31 @@
-import { createRouter, createWebHistory } from 'vue-router/auto'
+import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router/auto'
 import { setupLayouts } from 'virtual:generated-layouts'
+import component from 'element-plus/es/components/tree-select/src/tree-select-option.mjs'
 
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  extendRoutes: (routes) => setupLayouts(routes),
+  extendRoutes: (routes: RouteRecordRaw[]) => setupLayouts(routes),
+  // extendRoutes: (routes: RouteRecordRaw[]) => {
+  //   // // method 1
+  //   // return [
+  //   //   ...setupLayouts(routes),
+  //   //   {
+  //   //     path: '/.....',
+  //   //     component: () => import('@/pages/')
+  //   //   }
+  //   // ]
+  //   // // method 2
+  //   // return [
+  //   //   ...setupLayouts([
+  //   //     ...routes,
+  //   //     {
+  //   //       path: '/.....',
+  //   //       component: () => import('@/pages/')
+  //   //     }
+  //   //   ])
+  //   // ]
+  // },
   // routes
   // routes: [
   //   {

@@ -6,7 +6,12 @@
 -->
 
 <template>
-  <div class=""> Hello world in pages/about.vue</div>
-</template>  
-<script setup lang="ts"></script>
-<style scoped lang="scss"></style>
+  <div class="">
+    <slot></slot>
+  </div>
+</template>
+
+<script setup lang="ts">
+</script>
+
+<style scoped></style>

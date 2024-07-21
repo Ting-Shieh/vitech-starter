@@ -8,3 +8,11 @@
  /* @tailwind base;
  @tailwind components;
  @tailwind utilities; */
+ .mobile-device {
+  .mobile {
+    display: block;
+  }
+  .mobile-hide {
+    display: none;
+  }
+ }

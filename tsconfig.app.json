@@ -18,7 +18,8 @@
       "@/*": ["./src/*"]
     },
     "moduleResolution": "Node16",
-    "noEmit": false // Referenced Project may not disable emit问题解决方法
+    "noEmit": false,// Referenced Project may not disable emit问题解决方法
+    "noImplicitAny": false
 
   }
 }

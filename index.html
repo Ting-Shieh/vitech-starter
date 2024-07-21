@@ -5,9 +5,30 @@
     <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vite App</title>
+    <!-- <script>
+      if(/iphone|Android|Windows Phone/i.test(navigator.userAgent)) {
+        window.location.href='https://www.imooc.com/'
+      }
+    </script> -->
   </head>
   <body>
     <div id="app"></div>
+    <script>
+      if(/iphone|Android|Windows Phone/i.test(navigator.userAgent)) {
+        document.body.classList.add('mobile-device')
+      }
+    </script> 
     <script type="module" src="/src/main.ts"></script>
+    <!-- <script>
+      function setFontSize() {
+        document.documentElement.style.fontSize = (document.documentElement.clientWidth / 1920) * 16 + 'px'
+      }
+      window.addEventListener('DOMContentLoaded', () => {
+        setFontSize()
+        window.onresize = function() {
+          setFontSize()
+        }
+      })
+    </script> -->
   </body>
 </html>

@@ -1,3 +1,4 @@
+import { RouterLink } from 'vue-router/auto';
 <!--
  Copyright (c) 2024 Ting<zsting29@gmail.com>
  
@@ -6,8 +7,71 @@
 -->
 
 <template>
-  <div class="">
-    default layout
-    <router-view />
+  <div 
+  class="fixed top-0 w-full z-50 transition-all duration-300 h-0"
+  :class="[
+    {'bg-black bg-opacity-30 shadow-lg': y > 0},
+    {'lt-sm:(bg-black h-full)': show}
+  ]"
+  >
+    <Container>
+      <img src="/512x512.png" class="w-14 h-full lt-sm:mx-auto" alt="toimc logo" />
+      <div 
+        :class="[
+          'lt-sm:(text-gray-300 text-2xl absolute right-5 top-3 cursor-pointer hover:text-white)'
+        ]"
+        @click="() => toggle()"
+      >
+        <Transition name="rotate-icon" mode="out-in">
+          <div v-if="!show" class="i-ic-round-menu"></div>
+          <div v-else class="i-radix-icons:cross-2"></div>
+        </Transition>
+      </div>
+      <Menu v-show="show" class="lt-sm:(absolute top-14 right-0 w-full flex-col)"></Menu>
+    </Container>
+  </div>
+  <router-view />
+  <div>
+    <div class="mobile-hide">
+      <DefaultFooter></DefaultFooter>
+    </div>
+    <div class="display-none mobile">
+      <MobileNavbar></MobileNavbar>
+    </div>
   </div>
 </template>
+<script setup lang="ts">
+const { y } =  useWindowScroll()
+const [show, toggle] = useToggle(false)
+const flag = ref(false)
+useResizeObserver(document.body, () => {
+  const width = window.innerWidth
+  if(width >= 640){ 
+    toggle(true)
+    flag.value = false
+  } else { 
+    if(unref(flag)) return
+    flag.value = true
+    toggle(false)
+  }
+  
+})
+</script>
+<style scoped lang="scss">
+.rotate-icon-enter-active{
+  animation: scaleYIn 0.3s;
+}
+.rotate-icon-leave-active{
+  animation: scaleYIn 0.3s reverse;
+}
+@keyframes scaleYIn {
+  0% { 
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  100% { 
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+</style>
