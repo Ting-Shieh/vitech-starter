@@ -35,9 +35,9 @@ import { RouterLink } from 'vue-router/auto';
     <div class="mobile-hide">
       <DefaultFooter></DefaultFooter>
     </div>
-    <div class="display-none mobile">
+    <!-- <div class="display-none mobile">
       <MobileNavbar></MobileNavbar>
-    </div>
+    </div> -->
   </div>
 </template>
 <script setup lang="ts">

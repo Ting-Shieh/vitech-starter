@@ -18,6 +18,8 @@ export default defineConfig({
     // method 2：針對全局經常需要使用的樣式
     // 'router-link': 'text-white text-xl px-8 py-2 cursor font-300 hover:font-500'
     'bg-image': 'w-full h-full bg-cover bg-no-repeat bg-center-top',
+    btn: 'px-4 py-2 bg-sky-400 text-white hover:bg-sky-500 cursor-pointer',
+    "btn-plain": 'px-4 py-2 border border-sky-400 text-sky-400 cursor-pointer hover:(bg-sky-400 text-white)', // 
   },
   presets: [
     presetWind(),

@@ -10,8 +10,14 @@
     <div v-if="image" :class="imageClass" :style="{backgroundImage: `url(${image})`}"></div>
     <div v-else :class="[icon, 'w-20 h-20']"></div>
     <div v-if="title || subTitle" :class="titleCls">
-      <p class="text-lg text-dark-300 text-bold pb-2">{{ title }}</p>
-      <p class="text-sm text-dark-100 font-300">{{ subTitle }}</p>
+      <p 
+        :class="[
+          'text-sm text-dark-300 text-bold mb-2',
+          `line-clamp-${clamp}`,
+          'lg:text-base xl:text-lg'
+        ]"
+      >{{ title }}</p>
+      <p class="text-xs text-dark-100 font-300 line-clamp-2 ;g:text-sm xl:text-lg">{{ subTitle }}</p>
     </div>
     <slot :item="{image, icon, title, subTitle, url}"></slot>
   </div>
@@ -30,6 +36,14 @@ const props = defineProps({
     type: String as PropType<'default' | 'rounded' | 'avatar'>,
     default: 'default'
   },
+  height: {
+    type: String,
+    default: 'h-40'
+  },
+  clamp: {
+    type: Number,
+    default: 2
+  }
 })
 
 const cardClass = computed(() => {
@@ -50,13 +64,13 @@ const cardClass = computed(() => {
 })
 
 const imageClass = computed(() => {
-  const defaultClass = 'bg-image ' //'img bg-image '
+  const defaultClass = 'img bg-image ' //'img bg-image '
   if (!props.title && !props.subTitle && props.imageType === 'rounded') {
     return defaultClass + 'h-60 rounded'
   } else if (props.imageType === 'avatar') {
     return defaultClass + 'h-20 w-20 rounded-1/2 self-center absolute top-0 translate-y--1/2'
   }
-  return defaultClass + 'h-40'
+  return defaultClass + props.height
 })
 
 const titleCls = computed(() => {
